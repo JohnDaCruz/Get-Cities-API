@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  db:
+    image: "mysql:latest"
+    container_name: "world_city"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "world"
+    volumes:
+      - "./world_city.sql:/docker-entrypoint-initdb.d/world_city.sql"
+    ports:
+      - "3307:3306"
